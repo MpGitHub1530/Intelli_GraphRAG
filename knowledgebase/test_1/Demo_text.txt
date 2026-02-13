@@ -1,0 +1,42 @@
+GraphRAG is an advanced retrieval augmented generation system designed to improve knowledge intensive reasoning over large collections of structured and unstructured documents. Unlike traditional vector similarity search systems that rely purely on semantic embedding distance, GraphRAG constructs a structured knowledge graph during the ingestion phase and uses that structure during retrieval.
+
+The primary motivation behind GraphRAG is to address the limitations of chunk based retrieval. In traditional RAG systems, documents are split into text chunks and indexed into a vector database. When a user submits a query, the system retrieves the most similar chunks using cosine similarity. However, this method often fails when information is distributed across multiple sections or multiple documents. GraphRAG addresses this limitation by introducing structured relationships between extracted entities.
+
+During indexing, GraphRAG performs entity extraction using language models. Entities may include people, organizations, technologies, frameworks, regulatory standards, geographic locations, and abstract concepts. For example, in enterprise documentation, GraphRAG may extract entities such as Microsoft, OpenAI, Azure OpenAI, Azure AI Search, Flask, Parquet, Knowledge Graph, and Community Detection.
+
+After extracting entities, GraphRAG identifies relationships between them. Relationships are inferred using contextual co-occurrence, semantic proximity, and embedding similarity. If two entities frequently appear within the same context window, the system creates an edge between them in the graph. Each edge may carry a weight representing the strength of association.
+
+Graph construction is followed by community detection. GraphRAG uses clustering techniques to group strongly connected entities into communities. A community represents a semantically coherent concept cluster derived from document content. Each community is summarized and assigned a rank score between 0 and 100. Reports with rank above 70 are considered highly relevant for retrieval purposes.
+
+The system stores structured artifacts in parquet format. The file create_final_nodes.parquet contains entity level data including entity names, descriptions, community assignments, and embeddings. The file create_final_community_reports.parquet contains community summaries, rankings, and aggregated context.
+
+GraphRAG operates in two distinct modes. In local mode, the system uses the OpenAI API directly and streams responses using Server Sent Events. In Azure mode, it integrates with Azure OpenAI and Azure AI Search for enterprise deployments. The architecture supports both configurations without requiring major changes to the ingestion pipeline.
+
+At query time, GraphRAG does not directly retrieve raw document chunks. Instead, it performs a global search across communities. The query is mapped to relevant entity clusters using embedding similarity and graph traversal. This enables multi hop reasoning across related entities.
+
+For example, if a user asks about integration between OpenAI and enterprise compliance systems, GraphRAG may retrieve a community that links OpenAI, regulatory frameworks, AI governance policies, and enterprise knowledge systems. Even if these topics are distributed across multiple sections, the graph structure allows them to be connected.
+
+The architecture of GraphRAG consists of four layers. The ingestion layer processes raw text files and extracts structured representations. The graph construction layer builds nodes and edges. The retrieval layer performs global community level search. The LLM reasoning layer synthesizes a final answer grounded in retrieved reports.
+
+Performance characteristics depend on document size and entity density. For a document collection of approximately 10 medium sized technical documents, indexing typically requires between 20 and 90 seconds on standard hardware. Query latency during global search has been observed between 3 and 6 seconds in local testing environments.
+
+GraphRAG improves explainability compared to standard vector search systems. Because responses are grounded in community reports, the system can return ranked reports alongside answers. Each report contains a title, a rank score, and structured content derived from entity clusters.
+
+One of the advantages of GraphRAG is cross document reasoning. If two documents reference similar entities, the graph will connect them through shared nodes. This allows retrieval of related concepts even when exact keywords do not match.
+
+However, GraphRAG also has limitations. Incorrect entity extraction can introduce structural errors. For example, ambiguous organization names may be merged incorrectly if context is insufficient. Additionally, indexing time increases with document complexity. Highly technical documents with dense terminology may generate larger graphs and longer processing times.
+
+GraphRAG does not replace vector similarity search entirely. Instead, it augments traditional retrieval with structural reasoning. Hybrid approaches combining vector search and graph traversal may further improve retrieval accuracy.
+
+In internal evaluation scenarios using a synthetic benchmark of 50 structured questions, GraphRAG demonstrated improved multi document reasoning compared to naive chunk retrieval. However, exact sentence quoting performance depends heavily on prompt design and grounding instructions.
+
+The system is suitable for research assistants, enterprise knowledge management platforms, regulatory compliance analysis, technical documentation search, and multi agent AI workflows. In multi agent systems, GraphRAG can serve as a structured retrieval backbone while agents perform specialized reasoning tasks.
+
+Future development directions include adaptive community pruning, dynamic ranking adjustment, improved entity disambiguation, and integration with hybrid retrieval strategies. Additional improvements may include caching mechanisms for frequent queries and incremental indexing updates.
+
+The core goal of GraphRAG is to enable structured reasoning over complex document ecosystems while maintaining compatibility with modern large language models. By combining entity graphs, community clustering, and LLM synthesis, the system provides a structured alternative to purely similarity based retrieval.
+
+In summary, GraphRAG represents a structured retrieval augmented generation framework that emphasizes relationships, communities, and graph traversal rather than isolated text chunks.
+
+
+

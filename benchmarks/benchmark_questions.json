@@ -1,0 +1,457 @@
+[
+  {
+    "id": "1",
+    "category": "definition",
+    "question": "What is GraphRAG",
+    "expected_contains": [
+      "retrieval augmented generation",
+      "knowledge graph"
+    ]
+  },
+  {
+    "id": "2",
+    "category": "definition",
+    "question": "How does GraphRAG differ from traditional vector similarity search",
+    "expected_contains": [
+      "structured knowledge graph",
+      "embedding distance"
+    ]
+  },
+  {
+    "id": "3",
+    "category": "indexing",
+    "question": "What happens during ingestion in GraphRAG",
+    "expected_contains": [
+      "entity extraction",
+      "relationships",
+      "community detection"
+    ]
+  },
+  {
+    "id": "4",
+    "category": "indexing",
+    "question": "What problem in chunk based retrieval is GraphRAG trying to fix",
+    "expected_contains": [
+      "distributed",
+      "multiple sections",
+      "multiple documents"
+    ]
+  },
+  {
+    "id": "5",
+    "category": "entities",
+    "question": "List five types of entities GraphRAG can extract",
+    "expected_contains": [
+      "people",
+      "organizations",
+      "technologies",
+      "frameworks",
+      "concepts"
+    ]
+  },
+  {
+    "id": "6",
+    "category": "entities",
+    "question": "Name at least four example entities mentioned in the document",
+    "expected_contains": [
+      "Microsoft",
+      "OpenAI",
+      "Azure OpenAI",
+      "Flask"
+    ]
+  },
+  {
+    "id": "7",
+    "category": "relationships",
+    "question": "How does GraphRAG create relationships between entities",
+    "expected_contains": [
+      "co occurrence",
+      "semantic proximity",
+      "embedding similarity"
+    ]
+  },
+  {
+    "id": "8",
+    "category": "relationships",
+    "question": "What does an edge weight represent in the graph",
+    "expected_contains": [
+      "strength",
+      "association"
+    ]
+  },
+  {
+    "id": "9",
+    "category": "communities",
+    "question": "What is a community in GraphRAG",
+    "expected_contains": [
+      "cluster",
+      "strongly connected",
+      "semantically coherent"
+    ]
+  },
+  {
+    "id": "10",
+    "category": "communities",
+    "question": "What is the rank score range for community reports",
+    "expected_contains": [
+      "0",
+      "100"
+    ]
+  },
+  {
+    "id": "11",
+    "category": "communities",
+    "question": "What rank threshold is described as highly relevant",
+    "expected_contains": [
+      "70",
+      "highly relevant"
+    ]
+  },
+  {
+    "id": "12",
+    "category": "storage",
+    "question": "Which file contains entity level data",
+    "expected_contains": [
+      "create_final_nodes.parquet"
+    ]
+  },
+  {
+    "id": "13",
+    "category": "storage",
+    "question": "Which file contains community summaries and rankings",
+    "expected_contains": [
+      "create_final_community_reports.parquet"
+    ]
+  },
+  {
+    "id": "14",
+    "category": "storage",
+    "question": "What file format is used to store structured artifacts",
+    "expected_contains": [
+      "parquet"
+    ]
+  },
+  {
+    "id": "15",
+    "category": "modes",
+    "question": "What are the two operating modes described for GraphRAG",
+    "expected_contains": [
+      "local mode",
+      "azure mode"
+    ]
+  },
+  {
+    "id": "16",
+    "category": "modes",
+    "question": "In local mode what API is used directly",
+    "expected_contains": [
+      "OpenAI API"
+    ]
+  },
+  {
+    "id": "17",
+    "category": "modes",
+    "question": "In Azure mode what services are used",
+    "expected_contains": [
+      "Azure OpenAI",
+      "Azure AI Search"
+    ]
+  },
+  {
+    "id": "18",
+    "category": "query",
+    "question": "Does GraphRAG directly retrieve raw document chunks",
+    "expected_contains": [
+      "does not",
+      "community"
+    ]
+  },
+  {
+    "id": "19",
+    "category": "query",
+    "question": "What type of search does GraphRAG perform across communities",
+    "expected_contains": [
+      "global search"
+    ]
+  },
+  {
+    "id": "20",
+    "category": "query",
+    "question": "How does the query connect to relevant clusters",
+    "expected_contains": [
+      "embedding similarity",
+      "graph traversal"
+    ]
+  },
+  {
+    "id": "21",
+    "category": "architecture",
+    "question": "List the four layers of the GraphRAG architecture",
+    "expected_contains": [
+      "ingestion layer",
+      "graph construction layer",
+      "retrieval layer",
+      "LLM reasoning layer"
+    ]
+  },
+  {
+    "id": "22",
+    "category": "architecture",
+    "question": "What does the ingestion layer do",
+    "expected_contains": [
+      "processes raw text",
+      "structured representations"
+    ]
+  },
+  {
+    "id": "23",
+    "category": "architecture",
+    "question": "What does the graph construction layer do",
+    "expected_contains": [
+      "nodes",
+      "edges"
+    ]
+  },
+  {
+    "id": "24",
+    "category": "architecture",
+    "question": "What does the retrieval layer do",
+    "expected_contains": [
+      "community level search"
+    ]
+  },
+  {
+    "id": "25",
+    "category": "architecture",
+    "question": "What does the LLM reasoning layer do",
+    "expected_contains": [
+      "synthesizes",
+      "grounded"
+    ]
+  },
+  {
+    "id": "26",
+    "category": "performance",
+    "question": "What indexing time range is described for medium sized technical documents",
+    "expected_contains": [
+      "20",
+      "90",
+      "seconds"
+    ]
+  },
+  {
+    "id": "27",
+    "category": "performance",
+    "question": "What query latency range is described in local testing",
+    "expected_contains": [
+      "3",
+      "6",
+      "seconds"
+    ]
+  },
+  {
+    "id": "28",
+    "category": "explainability",
+    "question": "Why does GraphRAG improve explainability compared to vector search",
+    "expected_contains": [
+      "community reports",
+      "ranked"
+    ]
+  },
+  {
+    "id": "29",
+    "category": "explainability",
+    "question": "What fields are included when returning reports",
+    "expected_contains": [
+      "title",
+      "rank",
+      "content"
+    ]
+  },
+  {
+    "id": "30",
+    "category": "cross_document",
+    "question": "How does GraphRAG enable cross document reasoning",
+    "expected_contains": [
+      "shared nodes",
+      "connect"
+    ]
+  },
+  {
+    "id": "31",
+    "category": "limitations",
+    "question": "Name one limitation related to entity extraction quality",
+    "expected_contains": [
+      "incorrect entity extraction",
+      "structural errors"
+    ]
+  },
+  {
+    "id": "32",
+    "category": "limitations",
+    "question": "What is an example of entity extraction ambiguity",
+    "expected_contains": [
+      "ambiguous",
+      "merged incorrectly"
+    ]
+  },
+  {
+    "id": "33",
+    "category": "limitations",
+    "question": "How does document complexity affect indexing time",
+    "expected_contains": [
+      "increases",
+      "larger graphs"
+    ]
+  },
+  {
+    "id": "34",
+    "category": "hybrid",
+    "question": "Does GraphRAG replace vector similarity search entirely",
+    "expected_contains": [
+      "does not",
+      "augments"
+    ]
+  },
+  {
+    "id": "35",
+    "category": "hybrid",
+    "question": "What hybrid approach is suggested",
+    "expected_contains": [
+      "hybrid",
+      "vector search",
+      "graph traversal"
+    ]
+  },
+  {
+    "id": "36",
+    "category": "evaluation",
+    "question": "How many structured benchmark questions are mentioned",
+    "expected_contains": [
+      "50"
+    ]
+  },
+  {
+    "id": "37",
+    "category": "evaluation",
+    "question": "Exact sentence quoting performance depends on what",
+    "expected_contains": [
+      "prompt design",
+      "grounding"
+    ]
+  },
+  {
+    "id": "38",
+    "category": "use_cases",
+    "question": "List four use cases for GraphRAG",
+    "expected_contains": [
+      "research assistants",
+      "enterprise knowledge",
+      "regulatory compliance",
+      "technical documentation"
+    ]
+  },
+  {
+    "id": "39",
+    "category": "use_cases",
+    "question": "What role can GraphRAG play in multi agent systems",
+    "expected_contains": [
+      "retrieval backbone",
+      "agents"
+    ]
+  },
+  {
+    "id": "40",
+    "category": "future_work",
+    "question": "Name three future development directions mentioned",
+    "expected_contains": [
+      "entity disambiguation",
+      "caching",
+      "incremental indexing"
+    ]
+  },
+  {
+    "id": "41",
+    "category": "future_work",
+    "question": "What is mentioned about community pruning",
+    "expected_contains": [
+      "adaptive community pruning"
+    ]
+  },
+  {
+    "id": "42",
+    "category": "future_work",
+    "question": "What is mentioned about ranking adjustment",
+    "expected_contains": [
+      "dynamic ranking adjustment"
+    ]
+  },
+  {
+    "id": "43",
+    "category": "future_work",
+    "question": "What improvement is mentioned for frequent queries",
+    "expected_contains": [
+      "caching"
+    ]
+  },
+  {
+    "id": "44",
+    "category": "future_work",
+    "question": "What improvement is mentioned for updates",
+    "expected_contains": [
+      "incremental indexing"
+    ]
+  },
+  {
+    "id": "45",
+    "category": "quote_test",
+    "question": "Quote the exact sentence that states GraphRAG constructs a structured knowledge graph during ingestion",
+    "expected_contains": [
+      "constructs a structured knowledge graph"
+    ]
+  },
+  {
+    "id": "46",
+    "category": "quote_test",
+    "question": "Quote the exact sentence that says GraphRAG does not directly retrieve raw document chunks",
+    "expected_contains": [
+      "does not directly retrieve raw document chunks"
+    ]
+  },
+  {
+    "id": "47",
+    "category": "quote_test",
+    "question": "Quote the exact sentence that says reports with rank above 70 are highly relevant",
+    "expected_contains": [
+      "rank above 70",
+      "highly relevant"
+    ]
+  },
+  {
+    "id": "48",
+    "category": "precision",
+    "question": "What is the maximum number of reports formatted into context",
+    "expected_contains": [
+      "6"
+    ]
+  },
+  {
+    "id": "49",
+    "category": "precision",
+    "question": "What two example latency values are mentioned",
+    "expected_contains": [
+      "3",
+      "6"
+    ]
+  },
+  {
+    "id": "50",
+    "category": "summary",
+    "question": "Summarize the core goal of GraphRAG in two sentences",
+    "expected_contains": [
+      "structured reasoning",
+      "relationships",
+      "communities"
+    ]
+  }
+]
