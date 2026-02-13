@@ -127,6 +127,10 @@ class GraphRagQuery:
         entity_df = self._read_parquet_from_blob(entity_table_path)
         return report_df, entity_df
 
+    def get_reports(self, entity_table_path: str, community_report_table_path: str, community_level: int):
+        return self._get_reports(entity_table_path, community_report_table_path, community_level)
+
+
     # ---------------- Query ----------------
 
     async def global_query(self, query: str) -> Tuple[str, Dict[str, Any]]:
