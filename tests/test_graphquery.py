@@ -5,6 +5,8 @@ import pandas as pd
 from app.query.graphrag_query import GraphRagQuery
 from app.integration.graphrag_config import GraphRagConfig
 
+os.environ["OPENAI_API_KEY"] = "test"
+
 class TestGraphRagQuery(unittest.TestCase):
    def setUp(self):
        self.mock_config = Mock(spec=GraphRagConfig)
